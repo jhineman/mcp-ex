@@ -9,12 +9,24 @@ Run locally with http (remove options to run as stdio)
 uv run fastmcp run src/mcp_ex/greet_server.py:mcp --transport http --port 8000
 ```
 
-Example communication with greet server.
+Example communication with greet server:
+
+**Test Locally:**
+First, start the server:
+```bash
+uv run fastmcp run src/mcp_ex/greet_server.py:mcp --transport http --port 8000
+```
+Then run the test client:
+```bash
+uv run src/mcp_ex/test_greet_server.py --local
+```
+
+**Test Horizon Deployed (API key in .env):**
 ```bash
 uv run src/mcp_ex/test_greet_server.py
 ```
 
-Working with horizon deployed (api key in .env):
+**Test Custom URL:**
 ```bash
-uv run --env-file .env src/mcp/test_greet_server.py
+uv run src/mcp_ex/test_greet_server.py --url http://127.0.0.1:8000/mcp
 ```
