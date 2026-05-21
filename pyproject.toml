@@ -1,0 +1,16 @@
+[project]
+name = "mcp-ex"
+version = "0.1.0"
+description = "Examples and experiments with the MCP protocol"
+readme = "README.md"
+authors = [
+    { name = "Jay Hineman"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=3.3.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.15,<0.12.0"]
+build-backend = "uv_build"
