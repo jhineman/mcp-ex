@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "lexical-sapphire-wildfowl": {
+      "url": "https://lexical-sapphire-wildfowl.fastmcp.app/mcp",
+      "type": "http"
+    }
+  }
+}

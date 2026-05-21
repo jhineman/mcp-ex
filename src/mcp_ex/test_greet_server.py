@@ -1,11 +1,22 @@
 import asyncio
 from fastmcp import Client
+from dotenv import dotenv_values
 
-client = Client("http://localhost:8000/mcp")
+config = dotenv_values(".env")
+client = Client("https://lexical-sapphire-wildfowl.fastmcp.app/mcp", auth=config["HORIZON_API_KEY"])
 
-async def call_tool(name: str):
+async def main():
     async with client:
-        result = await client.call_tool("greet", {"name": name})
+        # Ensure client can connect
+        await client.ping()
+
+        # List available operations
+        tools = await client.list_tools()
+        resources = await client.list_resources()
+        prompts = await client.list_prompts()
+
+        # Ex. execute a tool call
+        result = await client.call_tool("greet", {"name": "Ford"})
         print(result)
 
-asyncio.run(call_tool("Ford"))
+asyncio.run(main())
